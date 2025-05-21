@@ -2,8 +2,14 @@ using UnityEngine;
 
 public class TileClickManager : MonoBehaviour
 {
+    public bool buildMode = false;
     void Update()
     {
+          if (Input.GetKeyDown(KeyCode.B))
+        {
+            buildMode = !buildMode;
+            Debug.Log("Build mode: " + (buildMode ? "ON" : "OFF"));
+        }
         if (Input.GetMouseButtonDown(0))
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -14,6 +20,9 @@ public class TileClickManager : MonoBehaviour
                 Tile tile = hit.collider.GetComponent<Tile>();
                 if (tile != null)
                 {
+                     if (buildMode)
+                        tile.PlaceBuilding();
+                    else
                     tile.Highlight();
                 }
             }
