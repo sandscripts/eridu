@@ -18,7 +18,10 @@ public class Tile : MonoBehaviour
         Debug.Log($"Tile clicked: {gameObject.name}");
         sr.color = Color.green;
     }
-
+    public bool IsOccupied()
+    {
+        return isOccupied;
+    }
     public void ResetColor()
     {
         sr.color = originalColor;

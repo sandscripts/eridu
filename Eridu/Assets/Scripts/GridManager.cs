@@ -13,14 +13,18 @@ public class GridManager : MonoBehaviour
 
     void GenerateGrid()
     {
-        for (int x = 0; x < width; x++)
+    float offsetX = -(width - 1) / 2f;
+    float offsetY = -(height - 1) / 2f;
+
+    for (int x = 0; x < width; x++)
+    {
+        for (int y = 0; y < height; y++)
         {
-            for(int y = 0; y < height; y++)
-            {
-                GameObject tile = Instantiate(tilePrefab, new Vector3(x, y), Quaternion.identity);
-                tile.name =$"Tile {x}, {y}";
-                tile.transform.parent = this.transform;
-            }
+            Vector2 position = new Vector2((x + offsetX), (y + offsetY));
+            GameObject tile = Instantiate(tilePrefab, position, Quaternion.identity);
+            tile.name = $"Tile_{x}_{y}";
+            tile.transform.parent = this.transform;
         }
     }
+}
 }
