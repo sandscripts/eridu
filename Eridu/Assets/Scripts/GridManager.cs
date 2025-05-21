@@ -17,7 +17,7 @@ public class GridManager : MonoBehaviour
         {
             for(int y = 0; y < height; y++)
             {
-                GameObject tile = Instantiate(tilePrefab, new Vector3(x,y), Quaternion.Identity);
+                GameObject tile = Instantiate(tilePrefab, new Vector3(x, y), Quaternion.identity);
                 tile.name =$"Tile {x}, {y}";
                 tile.transform.parent = this.transform;
             }
