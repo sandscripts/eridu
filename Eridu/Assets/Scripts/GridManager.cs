@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GridManager : MonoBehavior
+public class GridManager : MonoBehaviour
 {
     public int width = 10;
     public int height = 10;
